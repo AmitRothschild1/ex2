@@ -61,6 +61,53 @@ int main()
 			Not blanced: 1552, 34
 			Please notice: the number has to be bigger than 0.
 			*/
+		case 2:
+			int numberTask2;
+			printf("Enter a number:\n");
+			scanf("%d", &numberTask2);
+			while (numberTask2 <= 0)
+			{
+				printf("Only positive number is allowed, please try again:\n");
+				scanf("%d", &numberTask2);
+			}
+			int checkNumTask2 = numberTask2;
+			int countDigTask2=0;
+			while (checkNumTask2 != 0)
+			{
+				checkNumTask2 = checkNumTask2/10;
+				countDigTask2++;
+			}
+			int sum1Task2 = 0;
+			int sum2Task2 = 0;
+			int tensCounter = 1;
+			int numDigSupply = numberTask2;
+			for (int i =0; i < countDigTask2/2; i++)
+			{
+				numDigSupply = numDigSupply/10;
+				numDigSupply = numDigSupply*10;
+				sum1Task2 = sum1Task2 + ((numberTask2/tensCounter)-(numDigSupply));
+				numDigSupply = numDigSupply/10;
+				tensCounter = tensCounter*10;
+			}
+			if (countDigTask2%2 == 1)
+			{
+				numDigSupply = numDigSupply/10;
+				tensCounter = tensCounter*10;
+			}
+			for (int i =0; i < countDigTask2/2; i++)
+			{
+				numDigSupply = numDigSupply/10;
+				numDigSupply = numDigSupply*10;
+				sum2Task2 = sum2Task2 + ((numberTask2/tensCounter)-(numDigSupply));
+				numDigSupply = numDigSupply/10;
+				tensCounter = tensCounter*10;
+			}
+			if(sum1Task2==sum2Task2)
+				printf("This number is balanced and brings harmony!\n");
+			else
+				printf("This number isn't balanced and destroys harmony.\n");
+			break;
+
 
 			// Case 3: determine whether the sum of the proper divisors (od an integer) is greater than the number itself
 			/* Examples:
