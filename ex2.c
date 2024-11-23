@@ -62,7 +62,7 @@ int main()
 			Please notice: the number has to be bigger than 0.
 			*/
 		case 2:
-			int numberTask2;
+			int numberTask2; //
 			printf("Enter a number:\n");
 			scanf("%d", &numberTask2);
 			while (numberTask2 <= 0)
