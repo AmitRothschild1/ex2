@@ -8,7 +8,7 @@ Assignment: ex2
 
 int main()
 {
-	int optionTask1 = 1;
+	int optionTask1 = 1; //
 	while (optionTask1 != 7)
 	{
 		printf("Choose an option:\n    1. Happy Face\n    2. Balanced Number\n    3. Generous Number\n    4. Circle Of Joy\n    5. Happy Numbers\n    6. Festival Of Laughter\n    7. Exit\n");
@@ -151,6 +151,91 @@ int main()
 			This one does not bring joy: 15, 8, 99
 			Please notice: the number has to be bigger than 0.
 			*/
+			        case 4:
+            //input number
+                int numberTask4;
+            printf("Enter a number:\n");
+            scanf("%d", &numberTask4);
+            while (numberTask4 <= 0)
+            {
+                printf("Only positive number is allowed, please try again:\n");
+                scanf("%d", &numberTask4);
+            }
+            //count digits
+            int checkNumTask4 = numberTask4;
+            int countDigTask4=0;
+            while (checkNumTask4 != 0)
+            {
+                checkNumTask4 = checkNumTask4/10;
+                countDigTask4++;
+            }
+            //reverse action
+            int numSaverTask4 = numberTask4;
+            int reverseNumTask4 = 0;
+            int tensCounterTask4 = 1;
+            for (int i =1; i < countDigTask4; i++)
+            {
+                tensCounterTask4 = tensCounterTask4*10;
+            }
+            while (numSaverTask4 > 0)
+            {
+                int subFromTask4 = numSaverTask4;
+                numSaverTask4 = numSaverTask4/10;
+                numSaverTask4 = numSaverTask4*10;
+                reverseNumTask4 = reverseNumTask4 + ((subFromTask4 - numSaverTask4) * tensCounterTask4);
+                tensCounterTask4 = tensCounterTask4/10;
+                subFromTask4 = subFromTask4/10;
+                numSaverTask4 = numSaverTask4/10;
+            }
+            if (numberTask4 == 1)
+            {
+                printf("The circle remains incomplete.\n");
+                break;
+            }
+            //prime check
+            int multiplyCheckerTask4 = 2;
+            int multiplySaverTask4 = 2;
+            int primeCheckerTask4 = 0;
+            while (multiplyCheckerTask4<numberTask4)
+            {
+                while (multiplyCheckerTask4 < numberTask4)
+                {
+                    multiplyCheckerTask4 += multiplySaverTask4;
+                }
+                if (multiplyCheckerTask4==numberTask4)
+                {
+                    primeCheckerTask4++;
+                    printf("The circle remains incomplete.\n");
+                    break;
+                }
+                multiplySaverTask4++;
+                multiplyCheckerTask4 = multiplySaverTask4;
+            }
+            if (primeCheckerTask4==0)
+            {
+                multiplyCheckerTask4 = 2;
+                multiplySaverTask4 = 2;
+                while (multiplyCheckerTask4<reverseNumTask4)
+                {
+                    while (multiplyCheckerTask4 < reverseNumTask4)
+                    {
+                        multiplyCheckerTask4 += multiplySaverTask4;
+                    }
+                    if (multiplyCheckerTask4==reverseNumTask4)
+                    {
+                        primeCheckerTask4++;
+                        printf("The circle remains incomplete.\n");
+                        break;
+                    }
+                    multiplySaverTask4++;
+                    multiplyCheckerTask4 = multiplySaverTask4;
+                }
+
+                if (primeCheckerTask4==0)
+                    printf("This number completes the circle of joy!\n");
+            }
+            break;
+
 
 
 			// Happy numbers: Print all the happy numbers between 1 to the given number.
