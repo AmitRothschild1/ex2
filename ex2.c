@@ -115,6 +115,35 @@ int main()
 			Not Abudant: 3, 7, 10
 			Please notice: the number has to be bigger than 0.
 			*/
+		case 3:
+			int numberTask3;
+			printf("Enter a number:\n");
+			scanf("%d", &numberTask3);
+			while (numberTask3 <= 0)
+			{
+				printf("Only positive number is allowed, please try again:\n");
+				scanf("%d", &numberTask3);
+			}
+			int multiplyCheckerTask3 = 2;
+			int multiplySaverTask3 = 2;
+			int multiplySumTask3 = 1;
+			while (multiplyCheckerTask3<numberTask3)
+			{
+				while (multiplyCheckerTask3 < numberTask3)
+				{
+					multiplyCheckerTask3 += multiplySaverTask3;
+				}
+				if (multiplyCheckerTask3==numberTask3)
+					multiplySumTask3 = multiplySumTask3 + multiplySaverTask3;
+				multiplySaverTask3++;
+				multiplyCheckerTask3 = multiplySaverTask3;
+			}
+			if (multiplySumTask3>numberTask3)
+				printf("This number is generous!\n");
+			else
+				printf("This number does not share.\n");
+			break;
+
 
 			// Case 4: determine wether a number is a prime.
 			/* Examples:
