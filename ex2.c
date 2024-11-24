@@ -8,12 +8,12 @@ Assignment: ex2
 
 int main()
 {
-	int optionTask1 = 1; //
-	while (optionTask1 != 7)
+	int optionTask1 = 1; //Integer variable used for users option selection
+	while (optionTask1 != 7) //If user chose 7 - program keeps running. Else - the program will stop.
 	{
-		printf("Choose an option:\n    1. Happy Face\n    2. Balanced Number\n    3. Generous Number\n    4. Circle Of Joy\n    5. Happy Numbers\n    6. Festival Of Laughter\n    7. Exit\n");
-		scanf("%d", &optionTask1);
-		switch (optionTask1)
+		printf("Choose an option:\n    1. Happy Face\n    2. Balanced Number\n    3. Generous Number\n    4. Circle Of Joy\n    5. Happy Numbers\n    6. Festival Of Laughter\n    7. Exit\n"); //Prints users options
+		scanf("%d", &optionTask1); //option input
+		switch (optionTask1) //Aiming for the selected option
 		{
 			// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
 			/* Example:
@@ -22,8 +22,8 @@ int main()
 			*   o
 			* \___/
 			*/
-		case 1:
-
+		case 1: //In case users chose  option 1
+			//variables inputs
 			int faceSize;
 			char mouth , nose , eyes;
 			printf("Enter symbols for the eyes, nose, and mouth:\n");
@@ -35,6 +35,7 @@ int main()
 				printf("The face's size must be an odd and positive number, please try again:\n");
 				scanf("%d", &faceSize);
 			}
+			//face building
 			printf("%c", eyes);
 			for (int i =0; i < faceSize; i++)
 			{
@@ -52,7 +53,7 @@ int main()
 				printf("%c", mouth);
 			}
 			printf("/\n");
-			break;
+			break; //stops the program - back to menu
 
 			// Case 2: determine whether the sum of all digits to the left of the middle digit(s)
 			// and the sum of all digits to the right of the middle digit(s) are equal
@@ -106,7 +107,7 @@ int main()
 				printf("This number is balanced and brings harmony!\n");
 			else
 				printf("This number isn't balanced and destroys harmony.\n");
-			break;
+			break; //stops the program - back to menu
 
 
 			// Case 3: determine whether the sum of the proper divisors (od an integer) is greater than the number itself
@@ -142,7 +143,7 @@ int main()
 				printf("This number is generous!\n");
 			else
 				printf("This number does not share.\n");
-			break;
+			break; //stops the program - back to menu
 
 
 			// Case 4: determine wether a number is a prime.
@@ -169,14 +170,15 @@ int main()
                 checkNumTask4 = checkNumTask4/10;
                 countDigTask4++;
             }
-            //reverse action
             int numSaverTask4 = numberTask4;
             int reverseNumTask4 = 0;
             int tensCounterTask4 = 1;
+			//tens calculator
             for (int i =1; i < countDigTask4; i++)
             {
                 tensCounterTask4 = tensCounterTask4*10;
             }
+			//reverse creation
             while (numSaverTask4 > 0)
             {
                 int subFromTask4 = numSaverTask4;
@@ -189,10 +191,10 @@ int main()
             }
             if (numberTask4 == 1)
             {
-                printf("The circle remains incomplete.\n");
-                break;
+                printf("The circle remains incomplete.\n"); //if users chose 1 - prints  the "incomplete" massage
+                break; //Back to menu
             }
-            //prime check
+            //regular number prime check
             int multiplyCheckerTask4 = 2;
             int multiplySaverTask4 = 2;
             int primeCheckerTask4 = 0;
@@ -211,7 +213,8 @@ int main()
                 multiplySaverTask4++;
                 multiplyCheckerTask4 = multiplySaverTask4;
             }
-            if (primeCheckerTask4==0)
+			//reversed number prime check
+            if (primeCheckerTask4==0) //if original number is prime - keeps on checking the reversed number
             {
                 multiplyCheckerTask4 = 2;
                 multiplySaverTask4 = 2;
@@ -234,7 +237,7 @@ int main()
                 if (primeCheckerTask4==0)
                     printf("This number completes the circle of joy!\n");
             }
-            break;
+            break; //stops the program - back to menu
 
 
 
@@ -257,12 +260,12 @@ int main()
 
 
 
-		case 7:
-			printf("Thank you for your journey through Numeria!\n");
-			break;
-		default:
-			printf("This option is not available, please try again.\n");
-			break;
+		case 7: //In case users chose option 7
+			printf("Thank you for your journey through Numeria!\n"); //Prints goodbye massage
+			break; //Stops the program (back to menu + loop condition is false)
+		default: //In case users chose number that is not on the menu
+			printf("This option is not available, please try again.\n"); //Prints error
+			break; //Back to options
 		}
 	}
 }
