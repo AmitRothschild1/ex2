@@ -256,6 +256,60 @@ int main()
 			/* Example:
 			6, smile: 2, cheer: 3 : 1, Smile!, Cheer!, Smile!, 5, Festival!
 			*/
+			case 6:
+            //smile + cheer input
+            int smileTask6 , cheerTask6;
+            printf("Enter a smile and cheer number:\n");
+            scanf("%*[^\n]");
+            scanf("%*[\n]");
+            scanf("smile: %d, cheer: %d",&smileTask6,&cheerTask6);
+            while (smileTask6 <= 0 || cheerTask6 <= 0 || smileTask6 == cheerTask6)
+            {
+                printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
+                scanf("%*[^\n]");
+                scanf("%*[\n]");
+                scanf("smile: %d, cheer: %d",&smileTask6,&cheerTask6);
+            }
+            //max input
+            int maxNumTask6;
+            printf("Enter maximum number for the festival:\n");
+            scanf("%*[^\n]");
+            scanf("%*[\n]");
+            scanf("%d", &maxNumTask6);
+            while (maxNumTask6 <= 0)
+            {
+                printf("Only positive maximum number is allowed, please try again:\n");
+                scanf("%*[^\n]");
+                scanf("%*[\n]");
+                scanf("%d", &maxNumTask6);
+            }
+            int smileMathNumTask6 = 0;
+            int cheerMathNumTask6 = 0;
+            for (int i = 1; i < maxNumTask6+1; i++)
+            {
+                cheerMathNumTask6 = cheerTask6;
+                smileMathNumTask6 = smileTask6;
+                while (smileMathNumTask6 < i)
+                {
+                    smileMathNumTask6 += smileTask6;
+                }
+                while (cheerMathNumTask6 < i)
+                {
+                    cheerMathNumTask6 += cheerTask6;
+                }
+                if (smileMathNumTask6==i && cheerMathNumTask6==i)
+                    printf("Festival!\n");
+                else
+                if (smileMathNumTask6 == i && cheerMathNumTask6 != i)
+                    printf("Smile!\n");
+                else
+                if (smileMathNumTask6!=i && cheerMathNumTask6==i)
+                    printf("Cheer!\n");
+                else
+                if (smileMathNumTask6!=i && cheerMathNumTask6!=i)
+                    printf("%d\n",i);
+            }
+            break;
 			return 0;
 
 
