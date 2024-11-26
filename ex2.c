@@ -248,6 +248,39 @@ int main()
 			Not Happy :( : 5, 9
 			Please notice: the number has to be bigger than 0.
 			*/
+		case 5:
+			int numberTask5;
+			printf("Enter a number:\n");
+			scanf("%d", &numberTask5);
+			while (numberTask5 <= 0)
+			{
+				printf("Only positive number is allowed, please try again:\n");
+				scanf("%d", &numberTask5);
+			}
+			printf("Between 1 and %d only these numbers bring happiness: ", numberTask5);
+			int numSaverTask5 = 0;
+			for (int i = 1; i <= numberTask5; i++)
+			{
+				numSaverTask5 = i;
+				while (numSaverTask5 != 1 && numSaverTask5 != 4 && numSaverTask5 != 7)
+				{
+					int sumTask5 = 0;
+					//summing the digits power
+					while (numSaverTask5 > 0)
+					{
+						int numSubTask5 = numSaverTask5/10; //the number that sub the saved one
+						numSubTask5 = numSubTask5*10; //make sure the right digit is 0
+						sumTask5 = sumTask5 + (numSaverTask5 - numSubTask5)*(numSaverTask5-numSubTask5);
+						numSaverTask5 = numSaverTask5/10;
+					}
+					//printf("%d",sum);
+					numSaverTask5 = sumTask5;
+				}
+				if (numSaverTask5 == 1 || numSaverTask5 == 7)
+					printf("%d ",i);
+			}
+			printf("\n");
+			break;
 
 			// Festival of Laughter: Prints all the numbers between 1 the given number:
 			// and replace with "Smile!" every number that divided by the given smile number
